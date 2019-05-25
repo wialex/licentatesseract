@@ -1,0 +1,54 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<script type="text/javascript">
+	function upload() {
+		alert('sd');
+	}
+</script>
+<div style="text-align:center">
+	<style>
+		.header { margin-top: 100px }
+	    .my-drop-zone { border: dotted 3px lightgray; }
+	    html, body { height: 100%; }
+	    .result-body { margin-top: 20px }
+	</style>
+ 	
+	<mat-card class="container">
+		<mat-card-title class="primary title radius">OCR using Tesseract</mat-card-title>
+	    <section>
+	    	<h3 class="comment">Select a file To OCR (pdf or image file)</h3>
+	        <div class="col-md-12 file_panel radius" (click)="fileInput.click()">
+	        	<mat-icon svgIcon="thumbs-up"></mat-icon> <span>Click or Drag & Drop</span>	
+	        </div>
+	        
+	        <input #fileInput (change)="fileChange($event)" type="file" class="form-control-file" id="inputGroupFile01"  aria-describedby="inputGroupFileAddon01" style="display:none;"
+	        accept="image/png, image/jpg, image/tiff, image/bmp, image/pbm, application/pdf">
+	        
+	        <div class="col-md-12 file-name radius" *ngIf="fileName">{{fileName}} {{fileSize}} byte</div>
+
+	        <div class="row">
+		        <div class="col-md-12" *ngIf="disabled">
+		        	<button type="button" class="btn btn-primary" disabled (click)="upload()">Upload & OCR</button>	
+		        </div>
+		        <div class="col-md-12" *ngIf="!disabled">
+		        	<button type="button" class="btn btn-primary" (click)="upload()">Upload & OCR</button>	
+		        </div>	
+	        </div>
+	        
+	    </section>
+	    <section>
+			<mat-card class="ocr-result-container" *ngIf="onload === 'start' || onload === 'end' ">
+				<div class="progress-spinner">
+					<mat-progress-spinner class="ocr-loading" [color]="color" mode="indeterminate" diameter=37 *ngIf="onload === 'start'">
+			    	</mat-progress-spinner>
+				</div>
+				<mat-card-content *ngIf="onload === 'end'">
+					<h2>Result</h2>
+					<div>
+			    		{{results.result}}
+					</div>
+				</mat-card-content>
+			</mat-card>
+	    </section>
+	</mat-card>
+</div>
+<router-outlet></router-outlet>

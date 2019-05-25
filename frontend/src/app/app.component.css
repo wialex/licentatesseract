@@ -1,0 +1,13 @@
+.radius { border-radius: 4px; }
+.primary { background: #3f51b5; color: white; }
+.title { height: 77px; align-items: center; display: flex; justify-content: center;}
+.file_panel { border: 2px dashed #e6e6e6; background: #fafafa; height: 67px; margin-bottom: 17px;
+			  align-items: center; display: flex; justify-content: center; color: #888; cursor: pointer;}
+.comment { font-size: 17px; text-align: left; font-weight: 600;}
+.file-name { background: #fafafa; height: 57px; text-align: left; padding-left: 27px; display: flex; align-items: center;
+			 font-size: 14px; font-weight: 600; font-family: open sans,sans-serif!important; margin-bottom: 27px;}
+.container { margin-top: 70px;}
+.progress-spinner { display: flex; height: 37px; align-items: center; justify-content: center; }
+.ocr-loading { margin: 0 10px; }
+.ocr-body { }
+.ocr-result-container { margin:20px 0; border: 1px solid #e7e7e7; }
